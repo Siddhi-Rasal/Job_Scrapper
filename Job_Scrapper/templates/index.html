@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Matcher</title>
+</head>
+<body>
+    <h2>Upload Your Resume</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="resume" required>
+        <button type="submit">Match Jobs</button>
+    </form>
+
+    {% if jobs %}
+        <h3>Matched Jobs:</h3>
+        <ul>
+        {% for job in jobs %}
+            <li>
+                <strong>{{ job.title }}</strong> at {{ job.company }} <br>
+                Openings: {{ job.openings }} <br>
+                Contact: {{ job.contact }} <br>
+                Required Skills: {{ job.skills }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% elif request.method == 'POST' %}
+        <p>No matching jobs found.</p>
+    {% endif %}
+</body>
+</html>

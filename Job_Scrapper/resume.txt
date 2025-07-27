@@ -1,0 +1,3 @@
+
+I am proficient in Python, Flask, REST API development, and SQL. 
+I have built web applications and automation scripts using Python.
